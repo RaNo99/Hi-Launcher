@@ -1,0 +1,3 @@
+ID conflicts with reserved ID range (0-9999 only)
+Slider background bitmap looks best at width
+Form has editable field(s) without Graffiti State Indicator

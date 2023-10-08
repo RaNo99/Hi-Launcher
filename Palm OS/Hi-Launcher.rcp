@@ -1,0 +1,1479 @@
+//PRODUCT:	RNS:: Hi-Launcher
+//VERSION:	3.5
+//TRANSLATION:	English
+//TRANSLATOR:	Radoslaw Nowak
+
+/*PLACEHOLDERS:
+"replaced.com" //->"palmgear.com"/"handango.com"/"ranosoft.net"/etc.
+*/
+
+// ################## FORMS + MENUS + HELPSTRINGS ##################
+
+FORM ID 1000 AT (0 0 480 480)
+	NOFRAME NOSAVEBEHIND USABLE
+	MENUID 1000
+BEGIN
+	TITLE "RNS:: Hi-Launcher Setup"
+	FORMBITMAP AT (0 73) BITMAP 9002 USABLE
+	LABEL "1. Necessary configuration:" ID 1000 AT (5 18) USABLE FONT 1
+	LABEL "2. Additional customization:" ID 1001 AT (5 78) USABLE FONT 1
+	BUTTON "Menu trigger..." ID 2000 AT (8 34 144 13) USABLE RIGHTANCHOR RECTFRAME
+	BUTTON "Design the Menu..." ID 2002 AT (8 54 144 13) USABLE RIGHTANCHOR RECTFRAME
+	BUTTON "Display options..." ID 2003 AT (8 94 144 13) USABLE RIGHTANCHOR RECTFRAME
+	BUTTON "Recent App. trigger..." ID 2001 AT (8 114 144 13) USABLE RIGHTANCHOR RECTFRAME
+	BUTTON "Exclusions..." ID 2004 AT (8 134 144 13) USABLE RIGHTANCHOR RECTFRAME
+	FORMBITMAP AT (141 1) BITMAP 1020 NONUSABLE
+END
+
+STRING ID 1000  "RNS:: Hi-Launcher\n"\
+                "Welcome!\n"\
+                "\n"\
+                "\225 WHAT IS HI-LAUNCHER?\n"\
+                "\n"\
+                "Hi-Launcher introduces a Windows-like Start Menu to your "\
+                "Palm OS handheld.\n"\
+                "\n"\
+                "The Menu is completely configurable. As a result, you have "\
+                "to design or load it before you can use it!\n"\
+                "\n"\
+                "The Menu may consist of a virtually unlimited number of "\
+                "submenus.\n"\
+                "Each Hi-Launcher's menu can have a screen-size-limited "\
+                "number of items.\n"\
+                "Each of these items may function as an application launch "\
+                "command, or can be of some special functionality, e.g. the "\
+                "\"Backlight\" item which toggles the backlight.\n"\
+                "\n"\
+                "The Hi-Launcher's Menu may be shown at any time. It will "\
+                "pop-up over any running application. The method of "\
+                "popping-up the Menu is also completely configurable. As a "\
+                "result you have to setup the trigger before you can use it!\n"\
+                "\n"\
+                "\225 QUICK START\n"\
+                "\n"\
+                "The following steps are necessary to make the Menu work on "\
+                "your handheld:\n"\
+                "\n"\
+                "1) Setup the Menu pop-up trigger - use the \"Menu trigger\" "\
+                "button. See tips in that screen for more help.\n"\
+                "\n"\
+                "2) Design your Menu - use the \"Design the Menu\" button or "\
+                "the \"Load Sample Menu\" menu command. See tips in the "\
+                "relevant screens for more help.\n"\
+                "\n"\
+                "After you perform these steps, use the trigger that you "\
+                "selected to pop-up the Menu that you designed.\n"\
+                "\n"\
+                "More information available:\n"\
+                "www.hilauncher.com\n"\
+                "\n"\
+                "Enjoy!"
+
+FORM ID 1010 AT (2 2 156 156)
+	FRAME MODAL NOSAVEBEHIND USABLE 
+	HELPID 1011 DEFAULTBTNID 1001 MENUID 1010
+BEGIN
+	TITLE "Load Menu"
+	FORMBITMAP AT (2 0) BITMAP 9003 USABLE
+	LIST "" ID 2000 AT (6 18 144 110) USABLE DISABLED
+	FORMBITMAP AT (0 134) BITMAP 9001 USABLE
+	BUTTON "Load" ID 1000 AT (4 139 48 13) USABLE RIGHTANCHOR BOLDFRAME
+	BUTTON "Cancel" ID 1001 AT (57 139 48 13) USABLE RIGHTANCHOR FRAME
+END
+
+MENU ID 1010
+BEGIN
+        PULLDOWN "Menu"
+        BEGIN
+                MENUITEM "Beam" ID 1000 "B"
+                MENUITEM "Send" ID 1001 "S"
+                MENUITEM SEPARATOR
+                MENUITEM "Rename" ID 1003 "R"
+                MENUITEM "Delete" ID 1002 "D"
+        END
+
+END
+
+STRING ID 1011  "You may load a Menu out of the Menus you previously saved or installed in RAM."
+
+FORM ID 1020 AT (2 2 156 156)
+	FRAME MODAL NOSAVEBEHIND USABLE
+	HELPID 1020 DEFAULTBTNID 1001 MENUID 1010 
+BEGIN
+	TITLE "Save Current Menu"
+	FORMBITMAP AT (2 0) BITMAP 9003 USABLE
+	LABEL "Save as:" ID 0 AT (5 15) USABLE FONT 1
+	FIELD ID 3000 AT (50 15 90 13) USABLE LEFTALIGN EDITABLE UNDERLINED SINGLELINE AUTOSHIFT MAXCHARS 31
+	LIST "" ID 2000 AT (6 30 144 99) USABLE DISABLED
+	GRAFFITISTATEINDICATOR AT (143 16)
+	FORMBITMAP AT (0 134) BITMAP 9001 USABLE
+	BUTTON "Save" ID 1002 AT (4 139 48 13) USABLE RIGHTANCHOR BOLDFRAME
+	BUTTON "Cancel" ID 1001 AT (57 139 48 13) USABLE RIGHTANCHOR FRAME
+END
+
+STRING ID 1020  "You may save the currently used Menu. After saving, you may load it at any time.\n\n"\
+                "Display options such as Frame and Contents are saved together with the Menu."
+
+FORM ID 1030 AT (2 102 156 56)
+	FRAME MODAL SAVEBEHIND USABLE 
+	DEFAULTBTNID 1001 MENUID 10000 
+BEGIN
+	TITLE "Rename Menu"
+	LABEL "New Name:" ID 0 AT (5 17) USABLE FONT 1
+	FIELD ID 3000 AT (64 17 76 13) USABLE LEFTALIGN EDITABLE UNDERLINED SINGLELINE AUTOSHIFT MAXCHARS 31
+	GRAFFITISTATEINDICATOR AT (143 18)
+	FORMBITMAP AT (0 34) BITMAP 9001 USABLE
+	BUTTON "OK" ID 1002 AT (4 39 48 13) USABLE RIGHTANCHOR BOLDFRAME
+	BUTTON "Cancel" ID 1001 AT (57 39 48 13) USABLE RIGHTANCHOR FRAME
+END
+
+FORM ID 1100 AT (2 2 156 156)
+	FRAME MODAL NOSAVEBEHIND USABLE 
+	HELPID 1100 DEFAULTBTNID 1001
+BEGIN
+	TITLE ""
+	FORMBITMAP AT (0 82) BITMAP 9001 USABLE
+	FORMBITMAP AT (0 134) BITMAP 9001 USABLE
+	LABEL "1. Pick trigger:" ID 5000 AT (5 15) USABLE FONT 1
+	CHECKBOX "-None-" ID 2000 AT (3 27 150 13) USABLE RIGHTANCHOR GROUP 1
+	CHECKBOX "Hard button press" ID 2001 AT (3 40 150 13) USABLE RIGHTANCHOR GROUP 1
+	CHECKBOX "Silk-screen icon tap" ID 2002 AT (3 53 150 13) USABLE RIGHTANCHOR GROUP 1
+	CHECKBOX "Silk-screen stroke" ID 2003 AT (3 66 150 13) USABLE RIGHTANCHOR GROUP 1
+	LABEL "2. Setup the trigger:" ID 5001 AT (5 86) NONUSABLE FONT 1
+	BUTTON "Select the button/icon/stroke..." ID 4000 AT (6 101 144 13) NONUSABLE RIGHTANCHOR RECTFRAME
+	CHECKBOX "" ID 2010 AT (3 117 150 13) NONUSABLE LEFTANCHOR GROUP 0
+	CHECKBOX "Bottom base" ID 2011 AT (3 117 69 13) NONUSABLE LEFTANCHOR GROUP 0
+	CHECKBOX "Right base" ID 2012 AT (78 117 59 13) NONUSABLE LEFTANCHOR GROUP 0
+	BUTTON "Save" ID 1000 AT (4 139 48 13) USABLE RIGHTANCHOR BOLDFRAME
+	BUTTON "Cancel" ID 1001 AT (57 139 48 13) USABLE RIGHTANCHOR FRAME
+END
+
+STRING ID 1100  "The Hi-Launcher's Menu may be displayed at any time. It will "\
+                "pop-up over any running application.\n"\
+                "\n"\
+                "In this setup screen, you can choose what will cause the "\
+                "Menu to pop-up. This may be either a hard button press, a "\
+                "silk-screen icon tap, or a simple screen stroke.\n"\
+                "\n"\
+                "After choosing a trigger, you have to set it up by selecting "\
+                "the exact button, icon, or stroke. Use the \"Select the "\
+                "button/icon/ stroke...\" button to do it.\n"\
+                "\n"\
+                "Do not confuse silk-screen icons with hard buttons, or the "\
+                "\"Tap/Press-and-hold\" option won't work properly.\n"\
+                "\n"\
+                "The \"Bottom/Right base\" checkboxes may be useful on "\
+                "handhelds with the extended drawing area support.\n"\
+                "If checked, the coordinates will be bottom/right aligned so "\
+                "as to follow the Graffiti area state.\n"\
+                "\n"\
+                "More information available:\n"\
+                "www.hilauncher.com"
+
+STRING ID 1101  "In addition to the Menu pop-up trigger, you may define the "\
+                "most Recent Application launch trigger.\n"\
+                "\n"\
+                "In this setup screen, you can choose what will cause the "\
+                "relaunch of the most Recent Application. This may be either "\
+                "a hard button press, a silk-screen icon tap, or a simple "\
+                "screen stroke.\n"\
+                "\n"\
+                "After choosing a trigger, you have to set it up by selecting "\
+                "the exact button, icon, or stroke. Use the \"Select the "\
+                "button/icon/ stroke...\" button to do it.\n"\
+                "\n"\
+                "Do not confuse silk-screen icons with hard buttons, or the "\
+                "\"Tap/Press-and-hold\" option won't work properly.\n"\
+                "\n"\
+                "The \"Bottom/Right base\" checkboxes may be useful on "\
+                "handhelds with the extended drawing area support.\n"\
+                "If checked, the coordinates will be bottom/right aligned so "\
+                "as to follow the Graffiti area state.\n"\
+                "\n"\
+                "Do not use the same trigger for the Menu pop-up and the most "\
+                "Recent Application.\n"\
+                "If you do so, only the Menu pop-up trigger will respond."
+
+FORM ID 1110 AT (2 2 156 156)
+	FRAME MODAL SAVEBEHIND USABLE 
+	DEFAULTBTNID 1001 
+BEGIN
+	FORMBITMAP AT (0 134) BITMAP 9001 USABLE
+	LABEL "Now press a hard button\rwhich will be the trigger." ID 2000 AT (5 5) NONUSABLE FONT 1
+	LABEL "Do not use this method for\rsilk-screen icons." ID 2001 AT (5 31) NONUSABLE
+	LABEL "Now tap a silk-screen icon\rwhich will be the trigger." ID 2002 AT (5 5) NONUSABLE FONT 1
+	LABEL "Do not use this method for\rhard buttons." ID 2003 AT (5 31) NONUSABLE
+	LABEL "Now do a silk-screen stroke\rwhich will be the trigger." ID 2004 AT (5 5) NONUSABLE FONT 1
+	LABEL "Do a straight-line stroke (in any\rdirection) in the silk-screen area." ID 2005 AT (5 31) NONUSABLE
+	LABEL "The button or icon has been\rselected successfully." ID 3000 AT (5 5) NONUSABLE FONT 1
+	LABEL "Press \"OK\" to save the setting,\ror press another button/icon to\rcha" \
+	"nge the setting again." ID 3001 AT (5 31) NONUSABLE
+	LABEL "The silk-screen stroke has\rbeen selected successfully." ID 3002 AT (5 5) NONUSABLE FONT 1
+	LABEL "Press \"OK\" to save the setting,\ror do another silk-screen stroke\rto" \
+	" change the setting again." ID 3003 AT (5 31) NONUSABLE
+	BUTTON "OK" ID 1000 AT (4 139 48 13) NONUSABLE RIGHTANCHOR BOLDFRAME
+	BUTTON "Cancel" ID 1001 AT (57 139 48 13) USABLE RIGHTANCHOR FRAME
+END
+
+FORM ID 1200 AT (2 2 156 156)
+	FRAME MODAL NOSAVEBEHIND USABLE 
+	HELPID 1200 DEFAULTBTNID 1001 MENUID 1200 
+BEGIN
+	TITLE ""
+	FORMBITMAP AT (2 0) BITMAP 9003 USABLE
+	FORMBITMAP AT (0 134) BITMAP 9001 USABLE
+
+	BUTTON "Save" ID 1000 AT (4 139 48 13) NONUSABLE RIGHTANCHOR BOLDFRAME
+	BUTTON "<< Back" ID 1002 AT (4 139 48 13) NONUSABLE RIGHTANCHOR BOLDFRAME
+	BUTTON "Cancel" ID 1001 AT (57 139 48 13) NONUSABLE RIGHTANCHOR FRAME
+
+	LIST "" ID 2000 AT (6 18 79 99) USABLE DISABLED
+	BUTTON "" ID 3000 AT (6 118 19 11) USABLE RIGHTANCHOR GRAPHICAL BITMAPID 1010 SELECTEDBITMAPID 0 RECTFRAME
+	BUTTON "" ID 3001 AT (26 118 19 11) NONUSABLE RIGHTANCHOR GRAPHICAL BITMAPID 1011 SELECTEDBITMAPID 0 RECTFRAME
+	REPEATBUTTON "" ID 3002 AT (46 118 19 11) NONUSABLE RIGHTANCHOR GRAPHICAL BITMAPID 1012 SELECTEDBITMAPID 0 RECTFRAME
+	REPEATBUTTON "" ID 3003 AT (66 118 19 11) NONUSABLE RIGHTANCHOR GRAPHICAL BITMAPID 1013 SELECTEDBITMAPID 0 RECTFRAME
+
+	LABEL "Item type:" ID 5000 AT (90 15) NONUSABLE FONT 1
+	POPUPTRIGGER "" ID 4000 AT (90 27 13 13) NONUSABLE LEFTANCHOR
+	LIST "Submenu" "Application" "Card App." "Desk Acc." "Prefs Panel" "URL" "Dial" "Special" "Toggle" "Status" "Splitter" ID 6000 AT (89 28 64 121) NONUSABLE DISABLED
+	POPUPLIST ID 4000 6000
+
+	BUTTON "Enter >>" ID 8000 AT (91 44 60 13) NONUSABLE RIGHTANCHOR BOLDFRAME
+
+	LABEL "Application:" ID 5001 AT (90 41) NONUSABLE FONT 1
+	POPUPTRIGGER "" ID 4001 AT (90 53 13 13) NONUSABLE LEFTANCHOR
+	LIST "" ID 6001 AT (89 43 64 110) NONUSABLE DISABLED
+	POPUPLIST ID 4001 6001
+
+	LABEL "Application:" ID 5002 AT (90 41) NONUSABLE FONT 1
+	POPUPTRIGGER "" ID 4002 AT (90 53 13 13) NONUSABLE LEFTANCHOR
+	LIST "" ID 6002 AT (89 43 64 110) NONUSABLE DISABLED
+	POPUPLIST ID 4002 6002
+
+	LABEL "Accessory:" ID 5003 AT (90 41) NONUSABLE FONT 1
+	POPUPTRIGGER "" ID 4003 AT (90 53 13 13) NONUSABLE LEFTANCHOR
+	LIST "" ID 6003 AT (89 43 64 110) NONUSABLE DISABLED
+	POPUPLIST ID 4003 6003
+
+	LABEL "Panel:" ID 5004 AT (90 41) NONUSABLE FONT 1
+	POPUPTRIGGER "" ID 4004 AT (90 53 13 13) NONUSABLE LEFTANCHOR
+	LIST ""  ID 6004 AT (89 43 64 110) NONUSABLE DISABLED
+	POPUPLIST ID 4004 6004
+
+	LABEL "Special:" ID 5020 AT (90 41) NONUSABLE FONT 1
+	POPUPTRIGGER "" ID 4020 AT (90 53 13 13) NONUSABLE LEFTANCHOR
+	LIST "Recent App." "Redial" "Home" "Find" "Menu" "Toolbar" "Brightness" "Contrast" "ABC Keyb." "123 Keyb." "Off" "Off & Lock" "HotSync" "HotSync M." "HotSync L." "Clock" "Soft Reset" "Reminders" "Graffiti" ID 6020 AT (89 43 64 110) NONUSABLE DISABLED
+	POPUPLIST ID 4020 6020
+
+	LABEL "Toggle:" ID 5021 AT (90 41) NONUSABLE FONT 1
+	POPUPTRIGGER "" ID 4021 AT (90 53 13 13) NONUSABLE LEFTANCHOR
+	LIST "Backlight" "Beam Rec." "Bluetooth" "Network" "Radio" "Auto-Off" "Sys. Sound" "Keylights" ID 6021 AT (89 43 64 88) NONUSABLE DISABLED
+	POPUPLIST ID 4021 6021
+
+	LABEL "Status:" ID 5022 AT (90 41) NONUSABLE FONT 1
+	BUTTON "?" ID 8030 AT (139 39 12 11) NONUSABLE RIGHTANCHOR FONT 1 RECTFRAME
+	POPUPTRIGGER "" ID 4022 AT (90 53 13 13) NONUSABLE LEFTANCHOR
+	LIST "Battery" "Memory" "Date/Time"  ID 6022 AT (89 43 64 33) NONUSABLE DISABLED
+	POPUPLIST ID 4022 6022
+
+	LABEL "Caption:" ID 5100 AT (90 73) NONUSABLE FONT 1
+	PUSHBUTTON "B" ID 8020 AT (139 71 12 11) NONUSABLE RIGHTANCHOR FONT 1 GROUP 0
+	FIELD ID 7000 AT (90 86 62 11) NONUSABLE LEFTALIGN EDITABLE UNDERLINED /*SINGLELINE*/ MULTIPLELINES AUTOSHIFT MAXCHARS 63
+	LABEL "Colors:" ID 5101 AT (90 101) NONUSABLE FONT 1
+	BUTTON "Back" ID 8010 AT (91 116 27 13) NONUSABLE RIGHTANCHOR RECTFRAME
+	BUTTON "Text" ID 8011 AT (124 116 27 13) NONUSABLE RIGHTANCHOR RECTFRAME
+	BUTTON "Line" ID 8012 AT (91 116 27 13) NONUSABLE RIGHTANCHOR RECTFRAME
+
+	GRAFFITISTATEINDICATOR AT (144 204)
+
+	LABEL "URL:" ID 5200 AT (90 41) NONUSABLE FONT 1
+	LABEL "Dial:" ID 5201 AT (90 41) NONUSABLE FONT 1
+	FIELD ID 7001 AT (90 54 62 11) NONUSABLE LEFTALIGN EDITABLE UNDERLINED /*SINGLELINE*/ MULTIPLELINES MAXCHARS 511
+	BUTTON "..." ID 8031 AT (139 39 12 11) NONUSABLE RIGHTANCHOR FONT 1 RECTFRAME
+END
+
+MENU ID 1200
+BEGIN
+        PULLDOWN "Item"
+        BEGIN
+                MENUITEM "Cut" ID 1004
+                MENUITEM "Copy" ID 1005
+                MENUITEM "Paste" ID 3000
+                MENUITEM "Duplicate" ID 1002
+                MENUITEM SEPARATOR
+                MENUITEM "Copy Style" ID 1000
+                MENUITEM "Paste Style" ID 1001
+                MENUITEM SEPARATOR
+                MENUITEM "Properties..." ID 1003
+        END
+
+        PULLDOWN "Menu"
+        BEGIN
+                MENUITEM "Sort Alphabetically" ID 3001
+        END
+
+        PULLDOWN "Edit"
+        BEGIN
+                MENUITEM "Undo" ID 10000 "U"
+                MENUITEM "Cut" ID 10001 "X"
+                MENUITEM "Copy" ID 10002 "C"
+                MENUITEM "Paste" ID 10003 "P"
+                MENUITEM "Select All" ID 10004 "S"
+                MENUITEM SEPARATOR
+                MENUITEM "Keyboard" ID 10006 "K"
+                MENUITEM "Graffiti Help" ID 10007 "G"
+        END
+
+END
+
+STRING ID 1200  "The Hi-Launcher's Menu has to be configured before you can "\
+                "use it. Take your time and use your imagination to design "\
+                "the most intuitive Menu for yourself. Creating a good layout "\
+                "will benefit in your everyday Menu usage!\n"\
+                "\n"\
+                "This setup screen shows a simplified version of your Menu. "\
+                "Here you may add, edit, and remove its items.\n"\
+                "\n"\
+                "Tap the green \"+\" button to add a new item to the Menu.\n"\
+                "\n"\
+                "Tap the red \"-\" button to remove the selected item.\n"\
+                "\n"\
+                "Tap the blue up and down arrow buttons to move the selected "\
+                "item.\n"\
+                "\n"\
+                "You may always change the selected item's caption and its "\
+                "colors with the controls to the bottom-right.\n"\
+                "\n"\
+                "There are several item types:\n"\
+                "\n"\
+                "\"Submenu\" - use it to create a structure of nested menus.\n"\
+                "Use the \"Enter\" and \"Back\" buttons to walk through the "\
+                "structure. The title bar tells you which menu you are in.\n"\
+                "\n"\
+                "\"Application\" - launch an application. You may choose from "\
+                "applications installed in your handheld's memory.\n"\
+                "\n"\
+                "\"Card App.\" - launch an application from a memory card. "\
+                "You may choose from applications installed on a card in the "\
+                "\\PALM\\Launcher directory.\n"\
+                "\n"\
+                "\"Desk Acc.\" - launch a desk accessory (DA). DAs are small "\
+                "programs that popup over running applications.\n"\
+                "\n"\
+                "\"Prefs Panel\" - go to a preference panel - normally accessible in the \"Prefs\" application.\n"\
+                "\n"\
+                "\"URL\" - go to the defined URL. This may be a website "\
+                "address (http:) or any other protocol that is registered in "\
+                "your PDA.\n"\
+                "\n"\
+                "\"Dial\" - dial the defined phone number.\n"\
+                "\n"\
+                "\"Special\" - choose one of the following special actions:\n"\
+                "\n"\
+                "\"Recent App.\" - launch most recently used application. You "\
+                "may put several items of this type in your menu to get a "\
+                "list of most recently used applications. If an item has no "\
+                "caption, the recently used application's name will show up "\
+                "in the menu.\n"\
+                "\n"\
+                "\"Redial\" - redial most recently dialed phone number. "\
+                "You may put several items of this type in your menu to get a redial list. "\
+                "If an item has no caption, the contact's name will show up in the menu. "\
+                "This item type is available on Treo and Centro smartphones only.\n"\
+                "\n"\
+                "\"Home\" - exit the currently running application and go to "\
+                "your default Launcher.\n"\
+                "\n"\
+                "\"Find\" - same as tapping the \"Find\" silk-screen icon.\n"\
+                "\n"\
+                "\"Menu\" - pop-up the system menu.\n"\
+                "\n"\
+                "\"Toolbar\" - pop-up the system toolbar.\n"\
+                "\n"\
+                "\"Brightness\", \"Contrast\" - same as tapping the "\
+                "appropriate silk-screen icon.\n"\
+                "\n"\
+                "\"ABC Keyb.\", \"123 Keyb.\" -  same as tapping the \"ABC\" "\
+                "or \"123\" silk-screen icon.\n"\
+                "\n"\
+                "\"Off\" - same as pressing the \"Power\" button.\n"\
+                "\n"\
+                "\"Off & Lock\" - turn off and lock your handheld.\n"\
+                "\n"\
+                "\"HotSync\" - same as pressing the \"HotSync\" button on "\
+                "your cable/cradle.\n"\
+                "\n"\
+                "\"HotSync M\" - same as pressing the \"HotSync\" button on "\
+                "your modem.\n"\
+                "\n"\
+                "\"HotSync L\" - perform the HotSync operation using the connection method that was used last time (useful for syncing via Bluetooth or WiFi).\n"\
+                "\n"\
+                "\"Clock\" -  same as tapping the \"Clock\" silk-screen icon "\
+                "(where available).\n"\
+                "\n"\
+                "\"Soft Reset\" - perform a soft reset.\n"\
+                "\n"\
+                "\"Reminders\" - pop-up the \"Alerts\" screen containing all pending alarms and notifications.\n"\
+                "\n"\
+                "\"Graffiti\" - pop-up the Graffiti or Keyboard help screen.\n"\
+                "\n"\
+                "\"Toggle\" - choose one of the following on/off actions:\n"\
+                "\n"\
+                "\"Backlight\" - toggle the backlight (if available).\n"\
+                "\n"\
+                "\"Beam Rec.\" - toggle the \"Beam Receive\" option.\n"\
+                "\n"\
+                "\"Bluetooth\" - toggle the Bluetooth radio on/off to save "\
+                "battery. Requires BtToggle from Whizoo:\n"\
+                "www.whizoo.com\n"\
+                "\n"\
+                "\"Network\" - toggle the network/Internet connection.\n"\
+                "\n"\
+                "\"Radio\" - toggle the radio wireless mode. Works on Treo and Centro smartphones only.\n"\
+                "\n"\
+                "\"Auto-Off\" - toggle the \"Auto-Off\" setting. Note: do not "\
+                "forget to switch off your handheld manually whenever this "\
+                "setting is off!\n"\
+                "\n"\
+                "\"Sys. Sound\" - toggle the \"System Sound\" setting.\n"\
+                "\n"\
+                "\"Keylights\" - toggle the keyboard lights (if available).\n"\
+                "\n"\
+                "\"Status\" - choose one of the following status-showing "\
+                "items:\n"\
+                "\n"\
+                "\"Battery\" - shows current battery level.\n"\
+                "\n"\
+                "\"Memory\" - shows current memory usage.\n"\
+                "\n"\
+                "\"Date/Time\" - shows current date and time.\n"\
+                "\n"\
+                "\"Splitter\" - use it to group menu items. A splitter may or "\
+                "may not have a caption.\n"\
+                "\n"\
+                "More information and ready Menu examples available:\n"\
+                "www.hilauncher.com"
+
+STRING ID 1201  "All the \"Status\" items may be additionally customized by modifying their captions.\n"\
+                "Include these special symbols in your captions:\n"\
+                "\n"\
+                "\"Battery\":\n"\
+                "^P\011- battery power in \"%\"\n"\
+                "^V\011- battery power in \"V\"\n"\
+                "\n"\
+                "\"Memory\":\n"\
+                "^T\011- total RAM size in \"K\"\n"\
+                "^U\011- used memory in \"K\"\n"\
+                "^F\011- free memory in \"K\"\n"\
+                "^P\011- free memory in \"%\"\n"\
+                "\n"\
+                "\"Date/Time\":\n"\
+                "^T\011- time in default format\n"\
+                "^D\011- date in default format\n"\
+                "^W\011- day of week"
+
+FORM ID 1210 AT (2 2 156 156)
+	FRAME MODAL SAVEBEHIND USABLE
+	HELPID 1210 DEFAULTBTNID 1001 MENUID 10000
+BEGIN
+	TITLE "Item Properties"
+	FORMBITMAP AT (0 134) BITMAP 9001 USABLE
+	FORMBITMAP AT (0 29) BITMAP 9001 USABLE
+	BUTTON "OK" ID 1000 AT (4 139 48 13) USABLE RIGHTANCHOR BOLDFRAME
+	BUTTON "Cancel" ID 1001 AT (57 139 48 13) USABLE RIGHTANCHOR FRAME
+	LABEL "Shortcut character:" ID 5000 AT (5 15) NONUSABLE FONT 1
+	FIELD ID 2000 AT (113 15 38 11) NONUSABLE LEFTALIGN EDITABLE UNDERLINED SINGLELINE AUTOSHIFT MAXCHARS 1
+	CHECKBOX "Show icon" ID 3000 AT (3 33 150 13) USABLE RIGHTANCHOR GROUP 0
+	CHECKBOX "Set as default item" ID 3001 AT (3 47 150 13) NONUSABLE RIGHTANCHOR GROUP 0
+	CHECKBOX "Invisible" ID 3002 AT (3 61 150 13) NONUSABLE RIGHTANCHOR GROUP 0
+END
+
+STRING ID 1210  "Each executable item in your Menu can have a Graffiti or "\
+                "Keyboard shortcut assigned for faster execution.\n"\
+                "\n"\
+                "The \"Set as default item\" option sets this item to be "\
+                "initially selected when the menu pops-up. This setting is "\
+                "valid only if the \"Persistent selection/highlight\" option "\
+                "is checked in the general display options.\n"\
+                "\n"\
+                "The \"Show icon\" option may be overriden by the \"Show "\
+                "icons\" option in the general display options.\n"\
+                "\n"\
+                "You can make items invisible either to temporarily hide them "\
+                "in your Menu or to use their Graffiti or Keyboard shortcuts "\
+                "only."
+
+FORM ID 1300 AT (2 2 156 156)
+	FRAME MODAL NOSAVEBEHIND USABLE 
+	HELPID 1300 DEFAULTBTNID 1001
+BEGIN
+	TITLE "Display Options"
+	FORMBITMAP AT (0 134) BITMAP 9001 USABLE
+	FORMBITMAP AT (0 98) BITMAP 9001 USABLE
+	BUTTON "Frame..." ID 4000 AT (6 79 144 13) USABLE RIGHTANCHOR RECTFRAME
+	BUTTON "Animation..." ID 4001 AT (6 39 144 13) USABLE RIGHTANCHOR RECTFRAME
+	BUTTON "Contents..." ID 4002 AT (6 59 144 13) USABLE RIGHTANCHOR RECTFRAME
+	BUTTON "Triggering..." ID 4003 AT (6 19 144 13) USABLE RIGHTANCHOR RECTFRAME
+	CHECKBOX "Show the \"Did you know\" alerts" ID 3003 AT (3 102 150 13) NONUSABLE RIGHTANCHOR GROUP 0 CHECKED
+	BUTTON "Save" ID 1000 AT (4 139 48 13) USABLE RIGHTANCHOR BOLDFRAME
+	BUTTON "Cancel" ID 1001 AT (57 139 48 13) USABLE RIGHTANCHOR FRAME
+END
+
+STRING ID 1300  "The \"Triggering\" options define how the pop-up Menu shows "\
+                "(pops up) and hides.\n"\
+                "\n"\
+                "The pop-up Menu may appear either immediately or with a "\
+                "simple animation.\n"\
+                "Tap the \"Animation\" button to enable or disable, and to "\
+                "customize the animation.\n"\
+                "\n"\
+                "Use the \"Contents\" button to adjust general settings for "\
+                "all pop-up Menu items.\n"\
+                "\n"\
+                "The pop-up Menu may have a frame. Tap the \"Frame\" button "\
+                "to enable or disable, and to customize the frame."
+
+FORM ID 1310 AT (2 2 156 156)
+	FRAME MODAL SAVEBEHIND USABLE
+	DEFAULTBTNID 1001
+BEGIN
+	TITLE "Frame Options"
+	FORMBITMAP AT (0 134) BITMAP 9001 USABLE
+	FORMBITMAP AT (0 94) BITMAP 9001 USABLE
+	BUTTON "OK" ID 1000 AT (4 139 48 13) USABLE RIGHTANCHOR BOLDFRAME
+	BUTTON "Cancel" ID 1001 AT (57 139 48 13) USABLE RIGHTANCHOR FRAME
+	LABEL "Setup frame style:" ID 5000 AT (5 15) USABLE FONT 1
+	LABEL "Size:" ID 0 AT (20 31) USABLE
+	SLIDER ID 3000 AT (59 28 31 15) USABLE FEEDBACK THUMBID 0 BACKGROUNDID 0 VALUE 0 MIN 0 MAX 3 PAGESIZE 1
+	CHECKBOX "Shadow" ID 3001 AT (3 44 75 13) USABLE RIGHTANCHOR GROUP 0
+	CHECKBOX "Round corners" ID 3002 AT (78 44 75 13) USABLE RIGHTANCHOR GROUP 0
+	CHECKBOX "White background" ID 3003 AT (3 58 150 13) USABLE RIGHTANCHOR GROUP 0
+	BUTTON "Color" ID 8000 AT (6 75 144 13) USABLE RIGHTANCHOR RECTFRAME
+	LABEL "Preview:" ID 5001 AT (5 98) USABLE FONT 1
+END
+
+FORM ID 1320 AT (2 2 156 156)
+	FRAME MODAL SAVEBEHIND USABLE 
+	DEFAULTBTNID 1001 
+BEGIN
+	TITLE "Animation Options"
+	FORMBITMAP AT (0 59) BITMAP 9001 USABLE
+	FORMBITMAP AT (0 134) BITMAP 9001 USABLE
+	BUTTON "OK" ID 1000 AT (4 139 48 13) USABLE RIGHTANCHOR BOLDFRAME
+	BUTTON "Cancel" ID 1001 AT (57 139 48 13) USABLE RIGHTANCHOR FRAME
+	LABEL "1. Pick animation style:" ID 5000 AT (5 15) USABLE FONT 1
+	CHECKBOX "-None-" ID 3001 AT (3 28 75 13) USABLE RIGHTANCHOR GROUP 1
+	CHECKBOX "Mosaic" ID 3002 AT (78 28 75 13) USABLE RIGHTANCHOR GROUP 1
+	CHECKBOX "Fade" ID 3003 AT (3 42 75 13) USABLE RIGHTANCHOR GROUP 1
+	CHECKBOX "Slide" ID 3004 AT (78 42 75 13) USABLE RIGHTANCHOR GROUP 1
+	LABEL "2. Setup the animation style:" ID 5001 AT (5 63) NONUSABLE FONT 1
+	CHECKBOX "Right" ID 3010 AT (3 76 75 13) NONUSABLE RIGHTANCHOR GROUP 2
+	CHECKBOX "Left" ID 3011 AT (78 76 75 13) NONUSABLE RIGHTANCHOR GROUP 2
+	CHECKBOX "Up" ID 3012 AT (3 90 75 13) NONUSABLE RIGHTANCHOR GROUP 2
+	CHECKBOX "Down" ID 3013 AT (78 90 75 13) NONUSABLE RIGHTANCHOR GROUP 2
+	CHECKBOX "Inside Horiz." ID 3014 AT (3 104 75 13) NONUSABLE RIGHTANCHOR GROUP 2
+	CHECKBOX "Inside Vert." ID 3015 AT (78 104 75 13) NONUSABLE RIGHTANCHOR GROUP 2
+	CHECKBOX "Outside Horiz." ID 3016 AT (3 118 75 13) NONUSABLE RIGHTANCHOR GROUP 2
+	CHECKBOX "Outside Vert." ID 3017 AT (78 118 75 13) NONUSABLE RIGHTANCHOR GROUP 2
+	LABEL "Tile size:" ID 5010 AT (20 79) NONUSABLE
+	SLIDER ID 3000 AT (75 76 72 15) NONUSABLE FEEDBACK THUMBID 0 BACKGROUNDID 0 VALUE 0 MIN 0 MAX 9 PAGESIZE 0
+END
+
+FORM ID 1330 AT (2 2 156 156)
+	FRAME MODAL SAVEBEHIND USABLE 
+	HELPID 1330 DEFAULTBTNID 1001 
+BEGIN
+	TITLE "Contents Options"
+	FORMBITMAP AT (0 134) BITMAP 9001 USABLE
+	BUTTON "OK" ID 1000 AT (4 139 48 13) USABLE RIGHTANCHOR BOLDFRAME
+	BUTTON "Cancel" ID 1001 AT (57 139 48 13) USABLE RIGHTANCHOR FRAME
+	LABEL "Height:" ID 0 AT (5 16) USABLE
+	SLIDER ID 3000 AT (39 13 114 15) USABLE FEEDBACK THUMBID 0 BACKGROUNDID 0 VALUE 0 MIN 0 MAX 15 PAGESIZE 0
+	CHECKBOX "Reverse MRU lists sort order" ID 3002 AT (3 30 150 13) USABLE RIGHTANCHOR GROUP 0
+	CHECKBOX "Underline shortcut characters" ID 3003 AT (3 44 150 13) USABLE RIGHTANCHOR GROUP 0
+	CHECKBOX "Persistent selection/highlight" ID 3006 AT (3 58 150 13) USABLE RIGHTANCHOR GROUP 0
+	CHECKBOX "Show icons..." ID 3001 AT (3 72 150 13) USABLE RIGHTANCHOR GROUP 0
+	CHECKBOX "...only if available" ID 3004 AT (18 86 135 13) NONUSABLE RIGHTANCHOR GROUP 0
+	CHECKBOX "Show hidden applications in lists" ID 3005 AT (3 100 150 13) USABLE RIGHTANCHOR GROUP 0
+	LABEL "Redial:" ID 0 AT (5 115) USABLE
+	CHECKBOX "" ID 3010 AT (PREVRIGHT+4 PREVTOP AUTO AUTO) USABLE RIGHTANCHOR GROUP 0
+	FORMBITMAP AT (PREVRIGHT-1 PREVTOP+1) BITMAP 1030 USABLE
+	CHECKBOX "" ID 3011 AT (PREVRIGHT+10 PREVTOP-1 AUTO AUTO) USABLE RIGHTANCHOR GROUP 0
+	FORMBITMAP AT (PREVRIGHT-1 PREVTOP+1) BITMAP 1031 USABLE
+	CHECKBOX "" ID 3012 AT (PREVRIGHT+10 PREVTOP-1 AUTO AUTO) USABLE RIGHTANCHOR GROUP 0
+	FORMBITMAP AT (PREVRIGHT-1 PREVTOP+1) BITMAP 1032 USABLE
+	CHECKBOX "" ID 3013 AT (PREVRIGHT+10 PREVTOP-1 AUTO AUTO) USABLE RIGHTANCHOR GROUP 0
+	FORMBITMAP AT (PREVRIGHT-1 PREVTOP+1) BITMAP 1033 USABLE
+END
+
+STRING ID 1330  "You may adjust the height of all Menu items with the "\
+                "\"Height\" slider. Note that first 3 values (giving the "\
+                "smallest height) are only effective in high resolution.\n"\
+                "\n"\
+                "If you put several \"Recent App.\"  or \"Redial\" items in one menu, you "\
+                "will create a most recently used (MRU) applications list or a redial list.\n"\
+                "To reverse the sort order of these lists, check the "\
+                "\"Reverse MRU lists sort order\" checkbox.\n"\
+                "\n"\
+                "Check the \"Underline shortcut characters\" option to "\
+                "underline Graffiti or Keyboard shortcuts for all executable "\
+                "items in your Menu. To assign them, use the \"Properties\" "\
+                "menu command in the \"Design the Menu\" screen.\n"\
+                "\n"\
+                "To make sure that one item is always highlighted in a menu, "\
+                "check the \"Persistent selection/highlight\" box.\n"\
+                "\n"\
+                "You may toggle the icon display with the \"Show icons\" "\
+                "checkbox.\n"\
+                "\n"\
+                "If an application has no icon, the default icon will be used "\
+                "unless the \"only if available\" checkbox is checked.\n"\
+                "\n"\
+                "Uncheck the \"Show hidden applications in lists\" box to "\
+                "filter applications marked by their developers not to be "\
+                "displayed in launchers.\n"\
+                "\n"\
+                "The \"Redial\" checkboxes decide whether the given type of phone connections will be displayed in the \"Redial\" items. These are: "\
+                "outgoing, cancelled, incoming, missed."
+
+FORM ID 1340 AT (2 2 156 156)
+	FRAME MODAL SAVEBEHIND USABLE
+	HELPID 1340 DEFAULTBTNID 1001
+BEGIN
+	TITLE "Triggering Options"
+	FORMBITMAP AT (0 134) BITMAP 9001 USABLE
+	FORMBITMAP AT (0 62) BITMAP 9001 USABLE
+	BUTTON "OK" ID 1000 AT (4 139 48 13) USABLE RIGHTANCHOR BOLDFRAME
+	BUTTON "Cancel" ID 1001 AT (57 139 48 13) USABLE RIGHTANCHOR FRAME
+
+	LABEL "Pop up (Menu show):" ID 0 AT (5 15) USABLE FONT 1
+	LABEL "Delay:" ID 1 AT (5 31) USABLE
+	SLIDER ID 3000 AT (60 28 93 15) USABLE FEEDBACK THUMBID 0 BACKGROUNDID 0 VALUE 0 MIN 0 MAX 12 PAGESIZE 0
+	CHECKBOX "Force the default color palette" ID 3004 AT (3 45 150 13) USABLE RIGHTANCHOR GROUP 0
+
+	LABEL "Pop down (Menu hide):" ID 2 AT (5 66) USABLE FONT 1
+	LABEL "Auto-hide after:" ID 3 AT (5 82) USABLE
+	POPUPTRIGGER "" ID 5000 AT (137 81 13 13) USABLE RIGHTANCHOR
+	LIST "-Never-" "\x194 seconds" "\x198 seconds" "12 seconds" "16 seconds" "20 seconds"  ID 5001 AT (102 82 49 66) NONUSABLE DISABLED
+	POPUPLIST ID 5000 5001
+
+	LABEL "Double trigger-press:" ID 4 AT (5 96) USABLE
+	POPUPTRIGGER "" ID 5100 AT (137 95 13 13) USABLE RIGHTANCHOR
+	LIST "Hide" "Select" "Home" "Default" "Recent" ID 5101 AT (112 96 39 55) NONUSABLE DISABLED
+	POPUPLIST ID 5100 5101
+
+	CHECKBOX "Tap through submenus" ID 3005 AT (3 110 150 13) USABLE RIGHTANCHOR GROUP 0
+END
+
+STRING ID 1340  "The \"Delay\" slider defines the triggers' sensitivity  when "\
+                "their \"Tap/Press-and-hold\" option is enabled.\n"\
+                "\n"\
+                "Some applications run with a modified color palette which "\
+                "affects the Menu. You may check the \"Force the default "\
+                "color palette\" option to make sure the Hi-Launcher's Menu "\
+                "is always shown with the original color palette. This "\
+                "option, however, might be incompatible with some "\
+                "applications!\n"\
+                "\n"\
+                "The Menu may be closed automatically after a specified "\
+                "period of time.\n"\
+                "Use the \"Auto-hide after\" option to setup this period.\n"\
+                "\n"\
+                "If your trigger is a button or a silk-screen icon, then the \"Double trigger-press\" option specifies what action is taken if you press the trigger again once the Menu is up:\n"\
+		"\225 Hide the Menu\n"\
+		"\225 Select current Menu item\n"\
+		"\225 Go Home (launch the Launcher)\n"\
+		"\225 Default action for the trigger\n"\
+		"\225 Go to Recent application.\n"\
+                "\n"\
+                "Checking the \"Tap through submenus\" option lets you "\
+                "navigate between submenus with a single tap. Unchecking "\
+                "restricts tapping outside the topmost submenu to closing the "\
+                "submenu only."
+
+FORM ID 1400 AT (2 2 156 156)
+	FRAME MODAL NOSAVEBEHIND USABLE 
+	HELPID 1400 DEFAULTBTNID 1001 
+BEGIN
+	TITLE "Exclusions"
+	FORMBITMAP AT (0 134) BITMAP 9001 USABLE
+	BUTTON "Save" ID 1000 AT (4 139 48 13) USABLE RIGHTANCHOR BOLDFRAME
+	BUTTON "Cancel" ID 1001 AT (57 139 48 13) USABLE RIGHTANCHOR FRAME
+	LIST "" ID 6001 AT (6 18 144 77) USABLE DISABLED
+	CHECKBOX "Exclude from Recent" ID 3001 AT (3 98 150 13) NONUSABLE RIGHTANCHOR FONT 1 GROUP 0
+	CHECKBOX "Disable Hi-Launcher" ID 3000 AT (3 112 150 13) NONUSABLE RIGHTANCHOR FONT 1 GROUP 0
+END
+
+STRING ID 1400  "\225 \"Exclude from Recent\"\n"\
+                "Applications with this setting will not appear under the "\
+                "\"Recent App.\" Menu items and will not be launched with the "\
+                "\"Recent App. trigger\".\n"\
+                "\n"\
+                "\225 \"Disable Hi-Launcher\"\n"\
+                "Hi-Launcher's triggers will not be active in applications "\
+                "with this setting."
+
+FORM ID 666 AT (0 0 0 0)
+	FRAME MODAL NOSAVEBEHIND USABLE
+BEGIN
+END
+
+// ################## ALERTS + HELPSTRINGS ##################
+
+ALERT ID 1000
+WARNING
+DEFAULTBUTTON 1
+BEGIN
+    TITLE       "Disabled"
+    MESSAGE     "Hi-Launcher will not be active now. To use the Menu again, return to this setup screen and pick a pop-up method."
+    BUTTONS     "OK" "Cancel"
+END
+
+ALERT ID 1001
+WARNING
+BEGIN
+    TITLE       "Setup Incomplete"
+    MESSAGE     "Please set up the selected method first."
+    BUTTONS     "OK" 
+END
+
+ALERT ID 1002
+INFORMATION
+BEGIN
+    TITLE       "Success!"
+    MESSAGE     "The following button or icon has been selected:\n"\
+                "\225 ^1"
+    BUTTONS     "OK" 
+END
+
+ALERT ID 1003
+INFORMATION
+BEGIN
+    TITLE       "Success!"
+    MESSAGE     "A correct silk-screen stroke been selected."
+    BUTTONS     "OK" 
+END
+
+ALERT ID 1004
+ERROR
+BEGIN
+    TITLE       "Color Required"
+    MESSAGE     "This option is available in a color mode only."
+    BUTTONS     "OK" 
+END
+
+ALERT ID 1005
+WARNING
+DEFAULTBUTTON 1
+BEGIN
+    TITLE       "Illegal Items"
+    MESSAGE     "All the empty submenus and \"-None-\" items will now be removed."
+    BUTTONS     "OK" "Cancel" 
+END
+
+ALERT ID 1006
+WARNING
+DEFAULTBUTTON 1
+BEGIN
+    TITLE       "No Items"
+    MESSAGE     "The menu is empty and will now be removed."
+    BUTTONS     "OK" "Cancel" 
+END
+
+ALERT ID 1007
+WARNING
+DEFAULTBUTTON 1
+BEGIN
+    TITLE       "Subitems Found"
+    MESSAGE     "You are about to delete the selected submenu and all its subitems."
+    BUTTONS     "OK" "Cancel"
+END
+
+ALERT ID 1008
+WARNING
+DEFAULTBUTTON 1
+BEGIN
+    TITLE       "Subitems Found"
+    MESSAGE     "Changing the type of a submenu requires all its subitems to be deleted."
+    BUTTONS     "OK" "Cancel"
+END
+
+ALERT ID 1009
+ERROR
+BEGIN
+    TITLE       "System Incompatible"
+    MESSAGE     "System Version 3.5 or greater is required to run this application."
+    BUTTONS     "OK"
+END
+
+ALERT ID 1010
+HELPID 1010
+WARNING
+BEGIN
+    TITLE       "Hi-Launcher Hack"
+    MESSAGE     "Hi-Launcher Hack ^1.\n"\
+                "\n"\
+                "Please^2 activate."
+    BUTTONS     "OK"
+END
+
+STRING ID 1010  "Hi-Launcher Hack is required on devices with System Version older than 5.0.\n"\
+                "\n"\
+                "To activate the hack, you'll need a hack manager, e.g.:\n"\
+                "\225 YAHM\n"\
+                "\225 X-Master\n"\
+                "\225 HackMaster\n"\
+                "\225 TealMaster"
+
+ALERT ID 1011
+WARNING
+DEFAULTBUTTON 1
+BEGIN
+    TITLE       "Illegal Contents"
+    MESSAGE     "Menu cannot consist of captionless splitters or invisible items only.\n"\
+                "\n"\
+                "It will now be removed."
+    BUTTONS     "OK" "Cancel" 
+END
+
+ALERT ID 1012
+WARNING
+DEFAULTBUTTON 1
+BEGIN
+    TITLE       "Duplicate Shortcuts"
+    MESSAGE     "The \"^1\" shortcut is already in use.\n"\
+                "\n"\
+                "The other shortcut will now be removed."
+    BUTTONS     "OK" "Cancel" 
+END
+
+ALERT ID 1013
+WARNING
+BEGIN
+    TITLE       "Item Properties"
+    MESSAGE     "There are no additional properties for splitters."
+    BUTTONS     "OK"
+END
+
+ALERT ID 1014
+INFORMATION
+BEGIN
+    TITLE       "Success!"
+    MESSAGE     "Setup updated."
+    BUTTONS     "OK"
+END
+
+ALERT ID 1015
+HELPID 1015
+WARNING
+BEGIN
+    TITLE       "No Applications"
+    MESSAGE     "No applications found on expansion cards."
+    BUTTONS     "OK"
+END
+
+STRING ID 1015  "Applications should be put in the \\PALM\\Launcher directory on a card."
+
+ALERT ID 1016
+HELPID 1016
+WARNING
+BEGIN
+    TITLE       "No Accessories"
+    MESSAGE     "No desk accessories found in your handheld."
+    BUTTONS     "OK"
+END
+
+STRING ID 1016  "Desk accessories (DAs) are small programs that popup over running applications.\n"\
+                "\n"\
+                "Lots of them can be found at www.palmgear.com\n"\
+                "and\n"\
+                "www.handango.com"
+
+ALERT ID 1017
+WARNING
+BEGIN
+    TITLE       "No Items Selected"
+    MESSAGE     "You must have an item selected to perform this command."
+    BUTTONS     "OK"
+END
+
+ALERT ID 1018
+WARNING
+BEGIN
+    TITLE       "Not In RAM"
+    MESSAGE     "Hi-Launcher must\n"\
+                "not be installed on an expansion card.\n"\
+                "\n"\
+                "Its Menu will not work."
+    BUTTONS     "OK"
+END
+
+ALERT ID 1019
+WARNING
+BEGIN
+    TITLE       "Illegal Item"
+    MESSAGE     "There are no properties for untyped items."
+    BUTTONS     "OK" 
+END
+
+ALERT ID 1020
+WARNING
+DEFAULTBUTTON 1
+BEGIN
+    TITLE       "Sample Menu"
+    MESSAGE     "This will OVERWRITE the current Menu AND the Trigger setting!"
+    BUTTONS     "OK" "Cancel" 
+END
+
+ALERT ID 1021
+INFORMATION
+BEGIN
+    TITLE       "Sample Menu"
+    MESSAGE     "The Sample Menu has been loaded.\n"\
+                "\n"\
+                "The trigger has been set to the first hard button - usually the Date Book/\n"\
+                "Calendar/Phone button."
+    BUTTONS     "OK" 
+END
+
+ALERT ID 1022
+CONFIRMATION
+DEFAULTBUTTON 0
+BEGIN
+    TITLE       "Necessary Configuration"
+    MESSAGE     "The Hi-Launcher's Menu has to be configured before you can use it.\n"\
+                "\n"\
+                "To do so, you can either design your own Menu from the scratch or base on a Sample Menu."
+    BUTTONS     "From Scratch" "Sample Menu"
+END
+
+ALERT ID 1023
+INFORMATION
+BEGIN
+    TITLE       "Toggle Hi-Launcher On/Off"
+    MESSAGE     "Use your hack manager to toggle Hi-Launcher on/off."
+    BUTTONS     "OK" 
+END
+
+ALERT ID 1024
+WARNING
+BEGIN
+    TITLE       "Empty Name"
+    MESSAGE     "Database name must not be empty."
+    BUTTONS     "OK" 
+END
+
+ALERT ID 1025
+WARNING
+DEFAULTBUTTON 1
+BEGIN
+    TITLE       "Database Exists"
+    MESSAGE     "Overwrite the existing database?"
+    BUTTONS     "Yes" "No" 
+END
+
+ALERT ID 1026
+WARNING
+BEGIN
+    TITLE       "Database Exists"
+    MESSAGE     "This database name is already in use^1.\n"\
+                "\n"\
+                "Use a different name."
+    BUTTONS     "OK" 
+END
+
+ALERT ID 1027
+WARNING
+BEGIN
+    TITLE       "No Menu"
+    MESSAGE     "You must first design your Menu in order to save it."
+    BUTTONS     "OK" 
+END
+
+ALERT ID 1028
+WARNING
+DEFAULTBUTTON 1
+BEGIN
+    TITLE       "Load Menu"
+    MESSAGE     "This will OVERWRITE the current Menu!"
+    BUTTONS     "OK" "Cancel" 
+END
+
+ALERT ID 1029
+ERROR
+BEGIN
+    TITLE       "Send"
+    MESSAGE     "This operation is not available on your device!"
+    BUTTONS     "OK" 
+END
+
+ALERT ID 1030
+WARNING
+DEFAULTBUTTON 1
+BEGIN
+    TITLE       "Delete Menu"
+    MESSAGE     "Delete the ^1 Menu?"
+    BUTTONS     "Yes" "No" 
+END
+
+ALERT ID 1031
+WARNING
+DEFAULTBUTTON 1
+BEGIN
+    TITLE       "Disabled"
+    MESSAGE     "The trigger has been set but Hi-Launcher is still toggled off.\n"\
+                "\n"\
+                "Toggle Hi-Launcher on?"
+    BUTTONS     "Yes" "No" 
+END
+
+ALERT ID 1032
+WARNING
+BEGIN
+    TITLE       "Illegal Setting"
+    MESSAGE     "The default item must not be invisible."
+    BUTTONS     "OK"
+END
+
+ALERT ID 1033
+WARNING
+BEGIN
+    TITLE       "No Style Copied"
+    MESSAGE     "You must first copy the style from another item."
+    BUTTONS     "OK"
+END
+
+ALERT ID 1034
+WARNING
+BEGIN
+    TITLE       "No Connection Types"
+    MESSAGE     "You must select at least one Redial type."
+    BUTTONS     "OK"
+END
+
+ALERT ID 1035
+WARNING
+BEGIN
+    TITLE       "Cut Submenu"
+    MESSAGE     "Cutting whole submenus is not supported."
+    BUTTONS     "OK"
+END
+
+ALERT ID 1036
+WARNING
+BEGIN
+    TITLE       "No Item Copied"
+    MESSAGE     "You must first cut or copy an item."
+    BUTTONS     "OK"
+END
+
+ALERT ID 2000
+ERROR
+DEFAULTBUTTON 1
+BEGIN
+    TITLE       "Hi-Launcher"
+    MESSAGE     "Menu not found!\n"\
+                "Hi-Launcher will now be launched to let you load or design your Menu."
+    BUTTONS     "OK" "Cancel"
+END
+
+ALERT ID 2001
+ERROR
+BEGIN
+    TITLE       "Hi-Launcher"
+    MESSAGE     "Application not found!"
+    BUTTONS     "OK" 
+END
+
+ALERT ID 2002
+WARNING
+BEGIN
+    TITLE       "Hi-Launcher"
+    MESSAGE     "No recent application recorded!"
+    BUTTONS     "OK"
+END
+
+ALERT ID 2003
+WARNING
+DEFAULTBUTTON 1
+BEGIN
+    TITLE       "Hi-Launcher"
+    MESSAGE     "Major changes occurred.\n"\
+                "Hi-Launcher will now be launched to update its setup automatically."
+    BUTTONS     "OK" "Cancel"
+END
+
+ALERT ID 2004
+ERROR
+BEGIN
+    TITLE       "Hi-Launcher"
+    MESSAGE     "Accessory not found!"
+    BUTTONS     "OK"
+END
+
+ALERT ID 2005
+HELPID 2005
+ERROR
+BEGIN
+    TITLE       "Hi-Launcher"
+    MESSAGE     "BtToggle not found!\n"\
+                "Tap \"i\" for details..."
+    BUTTONS     "OK"
+END
+
+STRING ID 2005  "You have to install the BtToggle application to use this feature.\n"\
+                "\n"\
+                "Get BtToggle from Whizoo:\n"\
+                "www.whizoo.com"
+
+ALERT ID 2006
+ERROR
+BEGIN
+    TITLE       "Hi-Launcher"
+    MESSAGE     "Feature not available in this version."
+    BUTTONS     "OK"
+END
+
+ALERT ID 2007
+WARNING
+DEFAULTBUTTON 1
+BEGIN
+    TITLE       "Hi-Launcher"
+    MESSAGE     "There are some active network connections.\n"\
+                "Continue disconnecting?"
+    BUTTONS     "Yes" "No"
+END
+
+ALERT ID 2008
+HELPID 2008
+ERROR
+BEGIN
+    TITLE       "Hi-Launcher"
+    MESSAGE     "No handler registered for this protocol!"
+    BUTTONS     "OK" 
+END
+
+STRING ID 2008  "The protocol used in this URL is not assigned to any application on your handheld.\n"\
+                "\n"\
+                "Most handhelds recognize the following protocols:\n"\
+                "\225 http:\n"\
+                "   e.g. http://www.abc.com\n"\
+                "\225 mailto:\n"\
+                "   e.g. mailto:xyz@abc.com"
+
+ALERT ID 2009
+ERROR
+BEGIN
+    TITLE       "Hi-Launcher"
+    MESSAGE     "System Version 4.0 or greater is required to use this feature."
+    BUTTONS     "OK" 
+END
+
+ALERT ID 2010
+HELPID 2010
+ERROR
+BEGIN
+    TITLE       "Hi-Launcher"
+    MESSAGE     "Not enough dynamic memory.\n"\
+                "Tap \"i\" for details..."
+    BUTTONS     "OK" 
+END
+
+STRING ID 2010  "To avoid this situation, redesign your Menu so as to reduce its visual size."
+
+ALERT ID 2011
+WARNING
+BEGIN
+    TITLE       "Hi-Launcher"
+    MESSAGE     "Not enough free RAM memory."
+    BUTTONS     "OK"
+END
+
+ALERT ID 2012
+WARNING
+BEGIN
+    TITLE       "Hi-Launcher"
+    MESSAGE     "No redial number recorded!"
+    BUTTONS     "OK"
+END
+
+ALERT ID 2013
+ERROR
+BEGIN
+    TITLE       "Hi-Launcher"
+    MESSAGE     "A Treo or Centro smartphone is required to use this feature."
+    BUTTONS     "OK"
+END
+
+ALERT ID 2014
+ERROR
+BEGIN
+    TITLE       "Hi-Launcher"
+    MESSAGE     "The Menu was saved with a newer version of Hi-Launcher.\n\n"\
+    		"Please update Hi-Launcher or create the Menu again.\n\nwww.hilauncher.com"
+    BUTTONS     "OK"
+END
+
+ALERT ID 2015
+ERROR
+BEGIN
+    TITLE       "Hi-Launcher"
+    MESSAGE     "Panel not found!"
+    BUTTONS     "OK"
+END
+
+ALERT ID 2016
+ERROR
+BEGIN
+    TITLE       "Hi-Launcher"
+    MESSAGE     "A newer Treo or Centro smartphone model is required to use this feature."
+    BUTTONS     "OK"
+END
+
+//easter egg :-)
+ALERT ID 2100
+INFORMATION
+BEGIN
+    TITLE       "Murphy, the Bug"
+    MESSAGE     "Hi, I'm Murphy!\n"\
+                "\n"\
+                "www.hilauncher.com"
+    BUTTONS     "OK"
+END
+
+// ################## STRINGTABLES ##################
+
+STRINGTABLE ID 1000 ""
+"Up" "Down" "Menu" "Command Bar" "Home" "Find" "Calc/Fav" "Ronomatic" "Alpha Keyboard" "Numeric Keyboard"
+"Hard Button #1" "Hard Button #2" "Hard Button #3" "Hard Button #4" "Power" "Jog Up" "Jog Down" "Jog Push" "Back" "Hold"
+"Brightness" "Contrast" "Control" "Left" "Right" "Center" "Lid" "Record" "Top-left Icon" "Bottom-left Icon"
+"Top-right Icon" "Bottom-right Icon" "HotSync" "Modem HotSync" "Escape" "Camera" "Capture" "VG Select" "VG Toggle" "Battery"
+"Media" "Wireless" "Volume" "Control + button" "Shift" "Side" "Music" "Blue" "Yellow" "Green"
+"Red" "Back/Function" "Bluetooth" "Alt" "Clock"
+
+// ################## FULL VERSION ##################
+
+#ifndef trial
+FORM ID 9000 AT (2 2 156 156)
+	FRAME MODAL SAVEBEHIND USABLE
+	DEFAULTBTNID 7
+BEGIN
+	TITLE "About"
+	LABEL "RNS" ID 0 AT (5 16) USABLE FONT 7
+	FORMBITMAP AT (28 18) BITMAP 9000 USABLE
+	LABEL "Hi-Launcher" ID 0 AT (50 16) USABLE FONT 7
+	LABEL "Version:" ID 0 AT (5 32) USABLE FONT 1
+	LABEL "3.5" ID 0 AT (50 32) USABLE
+	LABEL "Author:" ID 0 AT (5 44) USABLE FONT 1
+	LABEL "Radoslaw Nowak" ID 0 AT (50 44) USABLE
+	LABEL "WWW:" ID 0 AT (5 56) USABLE FONT 1
+	LABEL "\x95 Thank you for your purchase." ID 0 AT (5 80) USABLE
+	LABEL "You will be notified about updates." ID 0 AT (11 91) USABLE
+	LABEL "\x95 Also try other RNS:: products:" ID 0 AT (5 108) USABLE
+	BUTTON "Done" ID 7 AT (5 138 42 13) USABLE RIGHTANCHOR FRAME
+	LABEL "\xa92009, RNS::" ID 0 AT (97 139) USABLE
+	BUTTON "hilauncher.com" ID 1000 AT (51 56 AUTO 11) USABLE RIGHTANCHOR RECTFRAME
+	BUTTON "www.replaced.com" ID 1001 AT (11 120 AUTO 11) USABLE RIGHTANCHOR RECTFRAME
+END
+
+MENU ID 1000
+BEGIN
+        PULLDOWN "Menu"
+        BEGIN
+                MENUITEM "Load..." ID 3001 "L"
+                MENUITEM "Save As..." ID 3002 "S"
+                MENUITEM SEPARATOR
+                MENUITEM "Load Sample Menu" ID 3000
+        END
+
+        PULLDOWN "Toggle"
+        BEGIN
+                MENUITEM "On" ID 4000 "1"
+                MENUITEM "Off" ID 4001 "0"
+        END
+
+        PULLDOWN "Help"
+        BEGIN
+                MENUITEM "Tips..." ID 1000 "T"
+                MENUITEM "About..." ID 1001 "A"
+        END
+
+END
+
+VERSION ID 1 "3.5"
+#endif
+
+// ################## TRIAL VERSION ##################
+
+#ifdef trial
+FORM ID 9000 AT (2 2 156 156)
+	FRAME MODAL SAVEBEHIND USABLE
+	DEFAULTBTNID 7
+BEGIN
+	TITLE "About"
+	LABEL "RNS" ID 0 AT (5 16) USABLE FONT 7
+	FORMBITMAP AT (28 18) BITMAP 9000 USABLE
+	LABEL "Hi-Launcher" ID 0 AT (50 16) USABLE FONT 7
+	LABEL "Version:" ID 0 AT (5 32) USABLE FONT 1
+	LABEL "3.5 TRIAL" ID 0 AT (50 32) USABLE
+	LABEL "Author:" ID 0 AT (5 44) USABLE FONT 1
+	LABEL "Radoslaw Nowak" ID 0 AT (50 44) USABLE
+	LABEL "WWW:" ID 0 AT (5 56) USABLE FONT 1
+	LABEL "\x95 This is the TRIAL version!" ID 0 AT (5 80) USABLE
+	LABEL "It will work for 10 days only..." ID 0 AT (11 91) USABLE
+	LABEL "\x95 Please get the full version from:" ID 0 AT (5 108) USABLE
+	BUTTON "Done" ID 7 AT (5 138 42 13) USABLE RIGHTANCHOR FRAME
+	LABEL "\xa92009, RNS::" ID 0 AT (97 139) USABLE
+	BUTTON "hilauncher.com" ID 1000 AT (51 56 AUTO 11) USABLE RIGHTANCHOR RECTFRAME
+	BUTTON "www.replaced.com" ID 1001 AT (11 120 AUTO 11) USABLE RIGHTANCHOR RECTFRAME
+END
+
+MENU ID 1000
+BEGIN
+        PULLDOWN "Menu"
+        BEGIN
+                MENUITEM "Load..." ID 3001 "L"
+                MENUITEM "Save As..." ID 3002 "S"
+                MENUITEM SEPARATOR
+                MENUITEM "Load Sample Menu" ID 3000
+        END
+
+        PULLDOWN "Toggle"
+        BEGIN
+                MENUITEM "On" ID 4000 "1"
+                MENUITEM "Off" ID 4001 "0"
+        END
+
+        PULLDOWN "Help"
+        BEGIN
+                MENUITEM "Where To Buy?" ID 2000
+                MENUITEM SEPARATOR
+                MENUITEM "Tips..." ID 1000 "T"
+                MENUITEM "About..." ID 1001 "A"
+        END
+
+END
+
+STRING ID 2200  "The \"Did you know\" message does not show-up in the full version of RNS:: Hi-Launcher.\n"\
+                "\n"\
+                "To buy RNS:: Hi-Launcher, visit www.replaced.com"
+
+STRING ID 2202  "To buy RNS:: Hi-Launcher, visit www.replaced.com\n"\
+                "\n"\
+                "We will highly appreciate your support! That will be your "\
+                "great involvement in the development of future versions. "\
+                "You'll get all of them free of charge due to our free "\
+                "updates policy."
+
+STRING ID 2300  "The \"Did you know\" message shows-up in the trial version of RNS:: Hi-Launcher only."
+
+STRING ID 2301  "To quickly get to the Hi-Launcher's setup screen, tap the "\
+                "\"Menu\" silk-screen icon.\n"\
+                "\n"\
+                "(you can do it only when the Hi-Launcher's Menu is visible)"
+
+STRING ID 2302  "You may put two or more Splitters one after another to get larger spaces between item groups.\n"\
+                "\n"\
+                "Experiment with different splitter colors to get various "\
+                "visual effects."
+
+STRING ID 2303  "Although this is the \"HIGH\" Launcher,\n"\
+                "its price is very LOW.\n"\
+                "\n"\
+                "What's more, after you once buy Hi-Launcher, you'll be "\
+                "getting all its updates and upgrades for free, forever!"
+
+STRING ID 2304  "You may add a virtually unlimited number of items to your "\
+                "Menu.\n"\
+                "\n"\
+                "Just use Submenus to group similar programs or special "\
+                "items."
+
+STRING ID 2305  "For better intuitivity, separate similar Menu items with "\
+                "Splitters.\n"\
+                "\n"\
+                "Unless a splitter has a caption, it is really tiny."
+
+STRING ID 2306  "Use various background colors for different groups of "\
+                "programs.\n"\
+                "\n"\
+                "If you do so, you will faster find the item you are looking "\
+                "for."
+
+STRING ID 2307  "Put only the most often used programs in the topmost Menu.\n"\
+                "\n"\
+                "Submenus are the right place for all the rest."
+
+STRING ID 2308  "Try another Menu pop-up trigger.\n"\
+                "\n"\
+                "Perhaps the \"Menu\" -> \"Home\" silk-screen stroke is a "\
+                "good idea?"
+
+STRING ID 2309  "You may use the Jog Dial or 5-Way Navigator to select and "\
+                "launch Menu items.\n"\
+                "\n"\
+                "How about making the Jog Dial or 5-Way Navigator a Menu "\
+                "trigger?"
+
+STRING ID 2310  "Creating a MRU list.\n"\
+                "(a list of most recently used applications)\n"\
+                "\n"\
+                "Put several items of the \"Recent App.\" type in your Menu. "\
+                "If you give them no captions you'll see the real names of "\
+                "those applications."
+
+STRING ID 2311  "RNS:: has produced lots of other cool software!\n"\
+                "\n"\
+                "Visit our home page:\n"\
+                "www.ranosoft.net\n"\
+                "for the list of the titles."
+
+STRING ID 2312  "Items may have additional properties.\n"\
+                "\n"\
+                "To modify them, call the \"Properties\" menu command in the "\
+                "\"Design the Menu\" screen after selecting an item."
+
+ALERT ID 2200
+HELPID 2200
+INFORMATION
+BEGIN
+    TITLE       "Did You Know?"
+    MESSAGE     "^1"
+    BUTTONS     "Continue >>" 
+END
+
+ALERT ID 2201
+HELPID 2202
+WARNING
+BEGIN
+    TITLE       "Trial Version"
+    MESSAGE     "You cannot uncheck this box in the trial version."
+    BUTTONS     "OK" 
+END
+
+ALERT ID 2202
+HELPID 2202
+WARNING
+BEGIN
+    TITLE       "Hi-Launcher"
+    MESSAGE     "Trial version expired!\n"\
+                "\n"\
+                "The Menu has been locked now. If you would like to continue using Hi-Launcher, please buy its full version. Your Menu will be unlocked with the installation of the full version."
+    BUTTONS     "OK" 
+END
+
+ALERT ID 2203
+HELPID 2202
+INFORMATION
+BEGIN
+    TITLE       "Trial Version"
+    MESSAGE     "Welcome to the trial version of Hi-Launcher!\n"\
+                "\n"\
+                "You are now starting a 10 days long evaluation period of Hi-Launcher.\n"\
+                "\n"\
+                "Design your own Menu and enjoy Hi-Launcher!"
+    BUTTONS     "Continue >>" 
+END
+
+VERSION ID 1 "3.5t"
+#endif

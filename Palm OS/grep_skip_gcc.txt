@@ -1,0 +1,1 @@
+Hi-Launcher.set.2.o: warning: global data ignored
